@@ -148,6 +148,12 @@ header .site-title {
 }
 /* End Features */
 
+/* Best picks */
+.best-pick-title {
+  margin: 2rem 0 3rem 0;
+}
+/* End Best picks */
+
 /* Second Slider */
 .site-slider-two {
   position: relative;
