@@ -149,8 +149,17 @@ header .site-title {
 /* End Features */
 
 /* Best picks */
-.best-pick-title {
-  margin: 2rem 0 3rem 0;
+.bes-pick .image-container {
+  padding: 10rem 1.5rem;
+}
+
+.image-gallery {
+  border: 1px solid black;
+  height: 20rem;
+  margin: 10px 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 /* End Best picks */
 
