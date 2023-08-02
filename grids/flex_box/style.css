@@ -1,0 +1,50 @@
+#container{
+    border: 10px solid black;
+    /* max-width: 50em;  */
+    height: 50em;
+    display: flex;
+    /* flex direction reset item inside flex box axis  default is row*/
+    /* flex-direction: column; */
+
+    /* justify-content: space-around; */
+
+    /* center item inside flex box vertical center  */
+    /* align-items:center;  */
+    
+    /* align content not work if flex wrap set default to not wrap  */
+    /* flex-wrap: wrap; */
+    /* align-content: flex-start; */
+    gap: 1em;
+}
+
+.item{
+    border: 1px solid red;
+    width: 200px;
+    height: 200px; 
+    text-align: center;
+}
+
+.item1{
+    order: 1;
+}
+
+.item2{
+    order:2;
+}
+
+.item3{
+    /* flex grow is how much item will grow  */
+    /* flex-grow: 1; */
+    /* flex shrink is how fast item will shrink  */
+    /* flex-shrink: 5; */
+    /* flex basis is override item width */
+    /* flex-basis: 0; */
+    /* flex is a combine of flex grow ,shrink and basic */
+    /* flex: 1;  */
+
+    /* align self is override flex box align  */
+    /* align-self: baseline; */
+
+    /* order is set which item will align first */
+    order: -1; 
+}
