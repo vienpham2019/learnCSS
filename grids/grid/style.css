@@ -1,0 +1,83 @@
+.item{
+    border: 5px red solid; 
+    /* width: 100px; */
+    /* height: 100px; */
+    /* background-color: black; */
+    /* color: white; */
+    /* text-align: center; */
+}
+
+.container{
+    border: 1px solid black;
+    display: grid;
+    /* grid have 6 columns and rows each have 100px width and height */
+    /* grid-template-columns: 100px 100px 100px 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px; */
+
+    /* grid-template-columns: 100px  minmax(100px , 3fr) 100px;
+    grid-template-rows: repeat(2 , 100px); */
+
+    /* grid-template-rows: 100px  300px 100px;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 
+        "header header"
+        "main aside"
+        "footer footer"
+    ; */
+
+    grid-template-rows: repeat(4 , 100px);
+    /* auto-fit will auto change number of column */
+    grid-template-columns: repeat(auto-fit , minmax(200px , 1fr));
+    /* set x axis  */
+    /* justify-items: end; */
+    /* set y axis  */
+    /* align-items: start; */
+
+}
+
+.item1{
+    /* grid-area: header; */
+    /* justify-self: stretch;
+    align-self: center; */
+}
+
+.item2{
+    /* grid-area: main; */
+}
+
+.item3{
+    /* grid-area: aside; */
+}
+
+.item4{
+    /* grid-area: footer; */
+}
+
+/* .item1{ */
+    /* grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 3; */
+
+    /* this is a short cut for defind grid column and row  */
+    /* item need to not defind width and height */
+    /* grid-row: 1 / 3;
+    grid-column: 1 / 7; */
+/* } */
+
+/* .item2{ */
+    /* using span keyword for better way for grid  */
+    /* this mean from current row and column span 2 for both way  */
+    /* grid-row: span 2;
+    grid-column: span 2; */
+
+    /* grid-area: 2 / 4 / 4 / 6;
+    z-index: 1; */
+/* } */
+
+/* .item3{ */
+    /* grid-area: row-start / col-start / row-end / colmn-end ; */
+    /* grid area is combine of grid row and colmn */
+    /* use -1 for max grid row and colmn  */
+    /* grid-area: 3 / 1 / 7 / 7;  */
+/* } */
