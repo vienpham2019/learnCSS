@@ -91,6 +91,8 @@
     display: grid;
     gap: 1rem;
 
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
     grid-template-areas:
         'one one two five'
         'three four four five'
@@ -128,6 +130,7 @@
 
 @media (max-width: 1411px) {
     .container2 {
+        grid-auto-rows: auto;
         grid-template-areas:
             'one one'
             'two three'

@@ -1,0 +1,98 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    margin: 0;
+}
+
+.btn::before {
+    content: '';
+    display: block;
+    /* position: relative; */
+    width: 100%;
+    height: 2px;
+    background-color: rgb(146, 0, 0);
+    animation: growWidthLeft 2s ease-in-out;
+}
+
+.btn::after {
+    content: '';
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(146, 0, 0);
+    animation: growWidthRight 2s ease-in-out;
+
+}
+
+@keyframes growWidthLeft {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes growWidthRight {
+    from {
+        width: 0;
+        left: 100%;
+    }
+
+    to {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.btn-box {
+    display: flex;
+}
+
+.btn-box::before {
+    content: '';
+    width: 2px;
+    height: 95px;
+    background-color: rgb(146, 0, 0);
+    animation: growHeightTop 2s ease-in-out;
+}
+
+.btn-box::after {
+    content: '';
+    position: relative;
+    width: 2px;
+    height: 95px;
+    background-color: rgb(146, 0, 0);
+    animation: growHeightBottom 2s ease-in-out;
+}
+
+@keyframes growHeightTop {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 95px;
+    }
+}
+
+@keyframes growHeightBottom {
+    from {
+        height: 0;
+        top: 95px;
+    }
+
+    to {
+        height: 95px;
+        top: 0;
+    }
+}
