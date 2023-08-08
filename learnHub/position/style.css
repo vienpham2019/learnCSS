@@ -1,0 +1,49 @@
+
+.container{
+    border: 1px solid red;
+    width: 50vw;
+    height: 50vh;
+    display: grid;
+    margin: 200px auto ; 
+    position: relative; 
+}
+
+h1{
+    margin: 20rem;
+}
+
+.item{ 
+    width: 100px; 
+    height: 100px;
+    background-color: black;
+}
+
+.pos-absolute{
+    /* position absolute it will remove element from  document and it looking for it parent position relative 
+    position it default static*/
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    z-index: -1;
+}
+
+.pos-relative{
+    /* position relative have an access to top right bottom left and z index and it not remove from document */
+    position: relative;
+    top: -200px;
+}
+
+.pos-fixed {
+    /* position fixed will move along with the page when scroll down */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.pos-sticky{
+    /* position sticky will move along when it hit the end of the container but it only work it
+    defind top left right bottom*/
+    position: sticky;
+    top: 10px;
+}
