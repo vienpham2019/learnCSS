@@ -1,0 +1,32 @@
+.box{
+    border: 1px solid black;
+    padding: 10px;
+    width: 20%;
+    /* conver element into inline element and it take much space as it neeed and avoid width and height 
+    span is one of the inline element  */
+    /* display: inline; */
+
+    /* div is block element and it will stack up each other */
+    /* display: block; */
+
+    /* inline block will inline a block element */
+    display: inline-block;
+}
+
+
+
+.box--red{
+    background-color: red;
+}
+
+.box--blue{
+    background-color: blue;
+}
+
+.box--green{
+    background-color: green;
+}
+
+.box--purple{
+    background-color: purple;
+}
