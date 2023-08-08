@@ -1,4 +1,4 @@
-#container{
+.container{
     border: 10px solid black;
     /* max-width: 50em;  */
     height: 50em;
@@ -48,3 +48,58 @@
     /* order is set which item will align first */
     order: -1; 
 }
+
+.container2 {
+    width: 90vw;
+    /* height: 500px; */
+    /* border: 10px solid black;  */
+    margin: 200px auto;
+    /* em is current element font size + .4rem */
+    gap: calc(1em + 0.4rem);
+
+    display: flex; 
+    /* flex row is make element flex horizontal */
+    flex-direction: row;
+}
+
+.content{ 
+    background-color: aquamarine;
+    padding: 20px;
+    /* flex basis make content will grow and shrink in the same size */
+    flex-basis: 100%;
+}
+
+@media (max-width: 900px) {
+    .container2{
+        /* flex colmn is make element flex vertical */
+        flex-direction: column;
+    }
+}
+
+/* ------------------------ */
+a{ 
+    text-decoration: none;
+    color: black;
+}
+
+.nav-list{
+    border: 3px solid navajowhite;
+    width: 90%;
+    margin: 0 auto;
+
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    gap: calc(1em + 0.2rem);
+    /* if flex grow turn on then justify content not work */
+    /* justify-content: center; */
+    flex-wrap: wrap;
+}
+
+.nav-list li{
+    border: 3px solid rgb(89, 211, 189); 
+    flex-grow: 1;
+    text-align: center;
+}
+
