@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-dark: rgb(13, 17, 19);
+    --clr-light: #fff;
+    --clr-accent: rgb(222, 52, 0);
+    --clr-accent-dark: rgb(163, 38, 0);
+    --clr-secondary: rgb(0, 76, 199);
+
+    --br: 0.5em;
+
+    --transition: tranform 200ms cubic-bez;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+}
+
+.card img {
+    height: 50vh;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    /* border: 1px solid red; */
+}
+
+.wave {
+    /* border: 1px solid red; */
+    width: 110%;
+    position: absolute;
+    transform: rotate(180deg);
+    fill: var(--clr-dark);
+    bottom: 0;
+    left: 0;
+
+    animation: waveMove linear 3s infinite;
+}
