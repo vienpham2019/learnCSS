@@ -70,22 +70,37 @@ body {
     transform: rotate(190deg);
 }
 
+.line-grid {
+    margin-block: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
 .line-container {
-    margin-top: 100px;
-    width: 50rem;
-    height: 50rem;
     display: grid;
     justify-items: center;
-    place-items: center;
+    align-items: center;
+    text-align: center;
+    width: 30rem;
+    height: 30rem;
     border: 1px solid red;
     background-color: var(--clr-dark);
 }
 
+.line-container svg {
+    width: 95%;
+    height: 95%;
+}
+
 .line-container .line1,
 .line-container .line2,
-.line-container .line3 {
+.line-container .line3,
+.line-container .line4 {
+    /* scale: 0.7; */
     stroke-dashoffset: 0;
-    stroke: rgb(0, 255, 238);
+    stroke: rgb(127, 255, 246);
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
 
     animation: draw ease-in-out 8s;
@@ -104,6 +119,11 @@ body {
 
 .line-container .line3 {
     --path-width: 5570;
+    stroke-dasharray: var(--path-width);
+}
+
+.line-container .line4 {
+    --path-width: 3920;
     stroke-dasharray: var(--path-width);
 }
 
