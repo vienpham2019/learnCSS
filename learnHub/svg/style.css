@@ -84,7 +84,7 @@ body {
     align-items: center;
     text-align: center;
     width: 30rem;
-    height: 30rem;
+    /* height: 30rem; */
     border: 1px solid red;
     background-color: var(--clr-dark);
     box-shadow: 10px 10px 20px rgb(63, 0, 0);
@@ -99,13 +99,14 @@ body {
 .line-container .line2,
 .line-container .line3,
 .line-container .line4,
-.line-container .line5 {
+.line-container .line5,
+.line-container .line6 {
     /* scale: 0.7; */
     stroke-dashoffset: 0;
     stroke: rgb(127, 255, 246);
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
 
-    animation: draw ease-in-out 9s;
+    animation: draw ease-in-out 9s infinite;
 }
 
 .line-container .line1 {
@@ -134,12 +135,25 @@ body {
     stroke-dasharray: var(--path-width);
 }
 
+.line-container .line6 {
+    --path-width: 430;
+    stroke-dasharray: var(--path-width);
+    stroke-width: 1px;
+}
+
 @keyframes draw {
     0% {
+        stroke: rgb(127, 255, 246);
         stroke-dashoffset: var(--path-width);
     }
 
-    100% {
+    50% {
+        stroke: rgb(127, 255, 163);
         stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke: rgb(255, 208, 127);
+        stroke-dashoffset: var(--path-width);
     }
 }
