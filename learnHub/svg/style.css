@@ -100,13 +100,15 @@ body {
 .line-container .line3,
 .line-container .line4,
 .line-container .line5,
-.line-container .line6 {
+.line-container .line6,
+.line-container .line7,
+.line-container .line8 {
     /* scale: 0.7; */
     stroke-dashoffset: 0;
     stroke: rgb(127, 255, 246);
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
 
-    animation: draw ease-in-out 9s infinite;
+    animation: draw ease-in-out 20s infinite;
 }
 
 .line-container .line1 {
@@ -141,13 +143,26 @@ body {
     stroke-width: 1px;
 }
 
+.line-container .line7 {
+    --path-width: 600;
+    stroke-dasharray: var(--path-width);
+    stroke-width: 1px;
+}
+
+.line-container .line8 {
+    --path-width: 370;
+    stroke-dasharray: var(--path-width);
+    stroke-width: 1px;
+}
+
 @keyframes draw {
     0% {
         stroke: rgb(127, 255, 246);
         stroke-dashoffset: var(--path-width);
     }
 
-    50% {
+    30%,
+    70% {
         stroke: rgb(127, 255, 163);
         stroke-dashoffset: 0;
     }
