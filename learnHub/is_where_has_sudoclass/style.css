@@ -1,0 +1,50 @@
+body {
+    display: grid;
+}
+
+/* :is() */
+
+.example-1 h1,
+.example-1 h2,
+.example-1 h3,
+.example-1 a {
+    color: red;
+}
+
+/* :is() is the short cut for example above */
+.example-1 :is(h1, h2, h3, a) {
+    color: blue;
+}
+
+a:is(:hover, :focus) {
+    color: purple;
+}
+
+/* :where() */
+
+/* :where() is the sudo class have the same function as :is() but is easy to override that after 
+because in side :is() style you can't override that easy outside but :where() can*/
+
+/* :has() */
+.has_psudo {
+    border: 1px solid red;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    justify-self: center;
+}
+
+.example-2 {
+    width: 20rem;
+    padding: 20px;
+}
+
+.example-2:has(a) {
+    background-color: red;
+}
+
+.example-2:has(h2) {
+    background-color: green;
+}
