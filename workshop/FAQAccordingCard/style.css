@@ -1,0 +1,122 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-neutral-hsl-100: 0, 0%, 100%;
+
+    --clr-primary: 224, 30%, 40%;
+    --clr-secondary: 241, 100%, 89%;
+
+    --clr-linear-gradient: linear-gradient(hsl(var(--clr-secondary)),
+            hsl(var(--clr-primary)));
+}
+
+body {
+    margin: 0;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background: var(--clr-linear-gradient);
+    min-height: 100vh;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background: hsl(var(--clr-neutral-hsl-100));
+    max-width: 80rem;
+    height: 60%;
+    border-radius: 2rem;
+}
+
+.image-container {
+    width: 40rem;
+    position: relative;
+}
+
+.image-container .image-container-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container :is(.pattern-image, .main-image, .box-image)>svg {
+    position: absolute;
+}
+
+.image-container .pattern-image>svg {
+    top: -17rem;
+    left: -28rem;
+}
+
+.image-container .main-image>svg {
+    scale: 1.3;
+    top: 5rem;
+    left: -2rem;
+}
+
+.image-container .box-image>svg {
+    scale: 0.8;
+    top: 12rem;
+    left: -7.4rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.question-container {
+    width: 80%;
+}
+
+.question-content {
+    border-bottom: 1px solid rgb(186, 186, 186);
+    padding-block: 1rem;
+}
+
+.question-content-header {
+    color: rgb(106, 106, 106);
+    display: flex;
+    padding-right: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question-content-header .question {
+    font-size: 1.3rem;
+    letter-spacing: .2rem;
+    margin: 0;
+}
+
+.question-content[data-access="true"] .question-content-header .question {
+    font-weight: bold;
+    color: black;
+}
+
+.question-content-header>svg {
+    scale: 1.4
+}
+
+.question-content[data-access="true"] .question-content-header>svg {
+    transform: rotate(180deg);
+}
+
+.question-content .answer {
+    display: block;
+    font-size: 1.3rem;
+    color: rgb(106, 106, 106);
+    padding-right: .4rem;
+    margin-top: 2rem;
+}
+
+.question-content[data-access="false"] .answer {
+    display: none;
+    background-color: red;
+}
