@@ -109,6 +109,7 @@ h6 {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    align-items: center;
 }
 
 .main__clock:first-child {
@@ -142,6 +143,7 @@ h6 {
     --_padding: 1.5rem;
     --_width: 6rem;
     --_border-radius: 0.5rem;
+    --_animate-time: 1ms;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -221,7 +223,7 @@ h6 {
     top: 0;
     z-index: 1;
     transform-origin: bottom;
-    animation: topFlip 250ms ease-in-out;
+    animation: topFlip var(--_animate-time) ease-in-out;
 }
 
 .main__clock-card[data-flip="true"]::after {
@@ -230,7 +232,7 @@ h6 {
     bottom: 0;
     z-index: 1;
     transform-origin: top;
-    animation: bottomFlip 250ms ease-in-out 250ms;
+    animation: bottomFlip var(--_animate-time) ease-in-out var(--_animate-time);
 }
 
 @keyframes topFlip {
