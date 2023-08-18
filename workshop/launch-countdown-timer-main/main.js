@@ -1,7 +1,7 @@
 
 const clocks = document.getElementsByClassName('clock');
 const info = document.getElementsByClassName('info__content');
-let timesArr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+let timesArr = [0, 0, 0, 0, 0, 0, 0, 1, 2];
 let isReset = false;
 
 let clockArr;
@@ -19,7 +19,6 @@ function init() {
             let nextNum;
             if (type === "seconds" || type === "minutes") {
                 if (j === 0) maxNumber = 5;
-                else numDiff = -1;
             }
 
             if (type === "hours") {
@@ -60,7 +59,7 @@ function init() {
         else {
             clearInterval(myInterval);
         }
-    }, 1)
+    }, 1000)
 }
 
 function setElementNumber({ card, topCard, bottomCard, num }) {
@@ -153,6 +152,7 @@ document.querySelector("#button").addEventListener("click", () => {
     let arr = [];
     for (let child of info) {
         let type = child.dataset.type;
+        if (child.querySelector('input').value === "") child.querySelector('input').value = "0";
         let val = parseInt(child.querySelector('input').value);
         sum += val;
         isValid = isValid && (validateNum[type] >= val || 0 >= val);
@@ -166,6 +166,7 @@ document.querySelector("#button").addEventListener("click", () => {
             arr[estimateLength - i] = num;
             val = parseInt(val / 10);
         }
+        child.querySelector('input').value = "0";
     }
     let minArr = [0, 9, 9, 2, 3, 5, 9, 5, 9];
     for (let i = arr.length - 1; i >= 0; i--) {
@@ -177,6 +178,9 @@ document.querySelector("#button").addEventListener("click", () => {
     timesArr = arr;
 
     isReset = isValid && sum;
+    if (isReset && clockArr[clockArr.length - 1].card.dataset.flip === "false") {
+        clockArr[clockArr.length - 1].card.dataset.flip = "true";
+    }
 })
 
 

@@ -88,17 +88,19 @@ h6 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 6rem;
+    gap: 5rem;
     background-image: url(images/bg-stars.svg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 75vh;
+    min-height: 75vh;
     text-transform: uppercase;
     line-height: 1;
+    overflow-x: hidden;
 }
 
 .main__title {
+    margin-top: 1rem;
     color: var(--clr-neutral-100);
     letter-spacing: 8px;
     font-size: 1.3rem;
@@ -107,17 +109,18 @@ h6 {
 
 .clock-container {
     display: flex;
-    gap: 1rem;
+    flex-direction: rows;
+    flex-wrap: wrap;
+    gap: 0.6rem;
     justify-content: center;
     align-items: center;
 }
 
 .main__clock:first-child {
-    margin-right: 3rem;
+    margin-right: 2rem;
 }
 
 .main__clock {
-    width: 100%;
     display: grid;
     gap: 2rem;
     justify-content: center;
@@ -126,7 +129,7 @@ h6 {
 
 .clock {
     display: flex;
-    gap: 0.2em;
+    gap: 0.1em;
     width: 100%;
 }
 
@@ -254,10 +257,9 @@ h6 {
 /* clock */
 
 .info {
+    margin-inline: 1rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    gap: 1.3rem;
     padding: 2rem;
     color: var(--clr-neutral-100);
     border: 1px solid var(--clr-neutral-600);
@@ -280,12 +282,8 @@ h6 {
     text-align: center;
 }
 
-.info__content>input:invalid {
+.info__content>input:required:invalid {
     border-color: red;
-}
-
-.info__content>input:invalid .info__content-hint::before {
-    opacity: 1;
 }
 
 .info_content-title {
@@ -316,16 +314,15 @@ h6 {
     content: attr(data-hint);
     position: absolute;
     display: flex;
-    justify-content: center;
     align-items: center;
-    opacity: 0;
-    top: -1.7rem;
-    width: 10rem;
-    height: 2rem;
-    font-size: 0.7rem;
-    color: black;
-    border-radius: 1rem 1rem 1rem 0;
-    background-color: white;
+    top: -0.8rem;
+    left: 5px;
+    width: 100%;
+    height: 1.3rem;
+    font-size: 0.6rem;
+    border-bottom: 0;
+    color: var(--clr-neutral-500);
+    transition: 20ms;
 }
 
 
@@ -346,7 +343,7 @@ h6 {
     background-image: url("images/pattern-hills.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     width: 100%;
     height: 25vh;
 }
@@ -356,4 +353,54 @@ h6 {
     justify-content: center;
     align-items: center;
     gap: 1.2rem;
+}
+
+@media (max-width: 931px) and (min-width: 648px) {
+
+    .clock-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .main__clock:first-child {
+        grid-column: span 3;
+        margin: 0;
+    }
+}
+
+@media (max-width: 931px) and (min-width: 321px) {
+    .info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .info>button {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 647px) {
+    .clock-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .main__title {
+        letter-spacing: 3px;
+        font-size: 1.2rem;
+    }
+
+    .main__clock>* {
+        margin: 0;
+        grid-column: span 3;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .info {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
 }

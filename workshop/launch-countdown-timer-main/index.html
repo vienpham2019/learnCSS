@@ -109,21 +109,24 @@
     </div>
 
     <div class="info">
-      <div class="info__content" data-type="days">
-        <span class="info__content-hint" data-hint="Min: 0, Max: 999"></span>
-        <input type="number" min="0" max="999" value="0">
+      <div class="info__content" data-type="days" data-isvalid="true">
+        <lable class="info__content-hint" for="days" data-hint="Min: 0 - Max: 999"></lable>
+        <input type="number" name="days" min="0" max="999" value="0" required>
         <span class="info_content-title">Days</span>
       </div>
-      <div class="info__content" data-type="hours">
-        <input type="number" min="0" max="23" value="0">
+      <div class="info__content" data-type="hours" data-isvalid="true">
+        <lable class="info__content-hint" for="days" data-hint="Min: 0 - Max: 23"></lable>
+        <input type="number" min="0" max="23" value="0" required>
         <span class="info_content-title">hours</span>
       </div>
-      <div class="info__content" data-type="minutes">
-        <input type="number" min="0" max="60" value="0">
+      <div class="info__content" data-type="minutes" data-isvalid="true">
+        <lable class="info__content-hint" for="days" data-hint="Min: 0 - Max: 60"></lable>
+        <input type="number" min="0" max="60" value="0" required>
         <span class="info_content-title">minutes</span>
       </div>
-      <div class="info__content" data-type="seconds">
-        <input type="number" min="0" max="60" value="0">
+      <div class="info__content" data-type="seconds" data-isvalid="true">
+        <lable class="info__content-hint" for="days" data-hint="Min: 0 - Max: 60"></lable>
+        <input type="number" min="0" max="60" value="0" required>
         <span class="info_content-title">seconds</span>
       </div>
       <button id="button">Start</button>
