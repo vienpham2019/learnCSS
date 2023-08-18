@@ -1,6 +1,8 @@
 
 const clocks = document.getElementsByClassName('clock');
-let timesArr = [0, 0, 0, 0, 0, 0, 2, 5, 9]
+const info = document.getElementsByClassName('info__content');
+let timesArr = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+let isReset = false;
 
 let clockArr;
 let myInterval = null;
@@ -86,6 +88,7 @@ function animateTime(cardElement) {
     card.addEventListener("animationstart", () => {
         let { currentNum, nextNum, numDiff } = time;
         if (card.dataset.flipcount === "1") {
+            if (isReset) isResetClock();
             if (currentNum === currentNum % numDiff && index != 0) {
                 clockArr[index - 1].card.dataset.flip = "true";
             }
@@ -114,7 +117,7 @@ function animateTime(cardElement) {
 }
 
 function setNum(time) {
-    time.currentNum = decNum(time.currentNum, time);
+    time.currentNum = time.nextNum;
     time.nextNum = decNum(time.nextNum, time);
 }
 
@@ -127,9 +130,53 @@ function decNum(num, time) {
     return num;
 }
 
-document.querySelector("#button").addEventListener("click", () => {
+function isResetClock() {
     clearInterval(myInterval);
     init();
+    clockArr.forEach((e, i) => {
+        e.card.dataset.flip = "true";
+        e.time.nextNum = timesArr[i];
+    });
+    isReset = false;
+}
+
+init();
+document.querySelector("#button").addEventListener("click", () => {
+    let validateNum = {
+        "days": 999,
+        "hours": 23,
+        "minutes": 60,
+        "seconds": 60,
+    }
+    let isValid = true;
+    let sum = 0;
+    let arr = [];
+    for (let child of info) {
+        let type = child.dataset.type;
+        let val = parseInt(child.querySelector('input').value);
+        sum += val;
+        isValid = isValid && (validateNum[type] >= val || 0 >= val);
+        let length = 2, estimateLength;
+        if (type === "days") {
+            length = 3;
+        }
+        estimateLength = arr.length + length;
+        for (let i = 1; i <= length; i++) {
+            let num = val % 10;
+            arr[estimateLength - i] = num;
+            val = parseInt(val / 10);
+        }
+    }
+    let minArr = [0, 9, 9, 2, 3, 5, 9, 5, 9];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        if (i === 4 && arr[i - 1] === 2) minArr[i] = 9;
+        if (arr[i] === 0) arr[i] = minArr[i];
+        else { arr[i] -= 1; break };
+    }
+
+    timesArr = arr;
+
+    isReset = isValid && sum;
 })
 
 
