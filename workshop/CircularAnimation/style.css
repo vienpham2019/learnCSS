@@ -1,0 +1,183 @@
+:root {
+    --clr-green-light: hsl(123, 47%, 74%);
+    --clr-green-dark: #65c86a;
+    --clr-blue-light: hsl(210, 47%, 74%);
+    --clr-blue-dark: #6596c8;
+    --clr-orange-light: hsl(34, 93%, 77%);
+    --clr-orange-dark: #f8aa44;
+    --clr-purple-light: hsl(231, 44%, 76%);
+    --clr-purple-dark: #707dc7;
+    --clr-yellow-light: hsl(54, 76%, 79%);
+    --clr-yellow-dark: #e9db5d;
+    --clr-brown-light: hsl(20, 41%, 69%);
+    --clr-brown-dark: #ba7a5a;
+    --clr-red-light: hsl(0, 59%, 76%);
+    --clr-red-dark: #d66161;
+    --clr-pink-light: hsl(295, 42%, 72%);
+    --clr-pink-dark: #6e2f74;
+    --clr-white-light: hsl(0, 0%, 100%);
+    --clr-white-dark: #999999;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.container {
+    --_numOfElement: 8;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    width: 30rem;
+    aspect-ratio: 1;
+}
+
+.image__container,
+.content {
+    position: absolute;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.image__container {
+    width: 10rem;
+    aspect-ratio: 1;
+    z-index: 1;
+}
+
+.content {
+    --_cl: var(--clr-green-dark);
+    --_bg-cl: var(--clr-green-light);
+    --_bg-cl-dark: var(--clr-green-dark);
+    --_scaleDelay: 0ms;
+    cursor: pointer;
+    width: 8rem;
+    aspect-ratio: 1;
+    left: 4rem;
+    transform-origin: 10rem;
+    transform: rotate(calc(360deg / var(--_numOfElement) * var(--_id))) translateX(-10rem);
+    animation: rotate 30s linear infinite;
+}
+
+.content__info {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    border-radius: 50%;
+    background-color: var(--_bg-cl);
+    aspect-ratio: 1;
+    animation: scale 1s ease infinite alternate var(--_scaleDelay);
+}
+
+.content:nth-child(1) {
+    --_cl: var(--clr-green-dark);
+    --_bg-cl: var(--clr-green-light);
+    --_bg-cl-dark: var(--clr-green-dark);
+}
+
+.content:nth-child(2) {
+    --_cl: var(--clr-blue-dark);
+    --_bg-cl: var(--clr-blue-light);
+    --_bg-cl-dark: var(--clr-blue-dark);
+}
+
+.content:nth-child(3) {
+    --_cl: var(--clr-orange-dark);
+    --_bg-cl: var(--clr-orange-light);
+    --_bg-cl-dark: var(--clr-orange-dark);
+}
+
+.content:nth-child(4) {
+    --_cl: var(--clr-purple-dark);
+    --_bg-cl: var(--clr-purple-light);
+    --_bg-cl-dark: var(--clr-purple-dark);
+}
+
+.content:nth-child(5) {
+    --_cl: var(--clr-yellow-dark);
+    --_bg-cl: var(--clr-yellow-light);
+    --_bg-cl-dark: var(--clr-yellow-dark);
+}
+
+.content:nth-child(6) {
+    --_cl: var(--clr-brown-dark);
+    --_bg-cl: var(--clr-brown-light);
+    --_bg-cl-dark: var(--clr-brown-dark);
+}
+
+.content:nth-child(7) {
+    --_cl: var(--clr-red-dark);
+    --_bg-cl: var(--clr-red-light);
+    --_bg-cl-dark: var(--clr-red-dark);
+}
+
+.content:nth-child(8) {
+    --_cl: var(--clr-pink-dark);
+    --_bg-cl: var(--clr-pink-light);
+    --_bg-cl-dark: var(--clr-pink-dark);
+}
+
+.content__info>:is(span, svg) {
+    position: absolute;
+    transform: rotate(calc(360deg / var(--_numOfElement) * var(--_id) * -1));
+    animation: rotateCounter 30s linear infinite
+}
+
+.content__info>span {
+    color: var(--clr-white-light);
+    width: 90%;
+    font-size: 0.8rem;
+    opacity: 0;
+}
+
+.content__info>svg {
+    fill: var(--_cl);
+    scale: 2;
+}
+
+.content__info:hover>span {
+    opacity: 1;
+}
+
+.content__info:hover {
+    background-color: var(--_bg-cl-dark);
+}
+
+.content__info:hover>svg {
+    opacity: 0;
+}
+
+.pause .content {
+    animation-play-state: paused;
+}
+
+.pause .content__info>:is(span, svg) {
+    animation-play-state: paused;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(calc(360deg / var(--_numOfElement) * var(--_id) + 360deg)) translateX(-10rem);
+    }
+}
+
+@keyframes rotateCounter {
+    100% {
+        transform: rotate(calc(360deg / var(--_numOfElement) * var(--_id) * -1 - 360deg));
+    }
+}
+
+@keyframes scale {
+
+    100% {
+        scale: 1.2;
+    }
+}
