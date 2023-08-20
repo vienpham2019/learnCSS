@@ -1,0 +1,108 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel {
+    display: grid;
+    justify-items: center;
+    gap: 0.6rem;
+}
+
+.carousel-container {
+    --_width: min(70rem, 70vw);
+    --_height: calc(var(--_width) * 0.5);
+    width: var(--_width);
+    height: var(--_height);
+    position: relative;
+}
+
+
+.slide-next,
+.slide-prev {
+    cursor: pointer;
+    border: 0;
+    width: 2rem;
+    height: 100%;
+    top: 0;
+    position: absolute;
+}
+
+.slide-prev {
+    left: -2.3rem;
+}
+
+.slide-next {
+    right: -2.3rem;
+}
+
+.slide-prev>svg,
+.slide-next>svg {
+    scale: 2;
+}
+
+.slide-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    position: absolute;
+    display: flex;
+    transition: transform 300ms ease-in;
+}
+
+.slide {
+    list-style: none;
+    width: var(--_width);
+    height: var(--_height);
+}
+
+.slide>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dots {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 2rem;
+}
+
+.dot {
+    cursor: pointer;
+    height: 1.2rem;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: flex-grow 250ms ease-in-out;
+}
+
+.dot.selected {
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-grow: 1;
+}
