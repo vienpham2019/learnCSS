@@ -1,0 +1,145 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+    min-height: 100vh;
+    font-family: system-ui;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+/*
+    5. Improve media defaults
+  */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    border: 0;
+}
+
+.wrapper {
+    max-width: 50rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+.accordion {
+    --_button-size: 3rem;
+    --_pannel-padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accordion * {
+    margin: 0;
+}
+
+.accordion-panel {
+    position: relative;
+    isolation: isolate;
+    flex-basis: calc(var(--_pannel-padding) * 2 + var(--_button-size));
+    overflow: hidden;
+    padding: var(--_pannel-padding);
+    border-radius: calc((var(--_pannel-padding) * 2 + var(--_button-size)) / 2);
+    transition: 300ms ease-in-out;
+}
+
+.accordion-panel:nth-child(1) {
+    --_panel-color: hsl(160, 70%, 50%);
+}
+
+.accordion-panel:nth-child(2) {
+    --_panel-color: hsl(184, 70%, 50%);
+}
+
+.accordion-panel:nth-child(3) {
+    --_panel-color: hsl(220, 70%, 50%);
+}
+
+.accordion-panel:nth-child(4) {
+    --_panel-color: hsl(350, 70%, 50%);
+}
+
+.accordion-panel:nth-child(5) {
+    --_panel-color: hsl(300, 70%, 50%);
+}
+
+.accordion-panel[aria-expanded="true"] {
+    flex-basis: clamp(15rem, 40vh, 20rem);
+}
+
+.according-content-info {
+    transform: translateY(1rem);
+    margin-inline: 4rem 2rem;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.according-content-info-fact {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.4rem;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+.fact-container>p>span {
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(169, 63, 63);
+}
+
+.according-image {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: red;
+    filter: brightness(0.5);
+}
+
+.accordion-trigger {
+    border: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+}
+
+.accordion-icon {
+    fill: var(--_panel-color);
+    width: var(--_button-size);
+    aspect-ratio: 1;
+    padding: 0.75rem;
+    border-radius: 50%;
+    background-color: hsl(0 0% 0% / 0.55);
+}
