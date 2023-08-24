@@ -159,8 +159,10 @@ movies.forEach((m, i) => {
     carousel.append(child[i]);
 })
 
+let pointChilds = Array.from(points.children);
+
 orders = [child.length - 2, child.length - 1, 0, 1, 2];
-points.children[orders[2]].classList.add('selected');
+pointChilds[orders[2]].classList.add('selected');
 
 setClassName('add');
 
@@ -173,7 +175,24 @@ button_left.addEventListener('click', () => {
 })
 
 points.addEventListener('click', (e) => {
+    let target = e.target.closest(".dot");
+    if (target === null) return;
+    let currentIndex = orders[2];
+    let targetIndex = pointChilds.findIndex(c => c === target);
+    let diffIndex = currentIndex - targetIndex;
+    let funct = diffIndex > 0 ? decIndex : incIndex
+    forLoop(Math.abs(diffIndex), 80, funct);
 })
+
+const forLoop = async (time, ms, funct) => {
+    for (let i = 0; i < time; i++) {
+        await sleep(ms).then(() => buttonFunction(funct));
+    }
+}
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+
 
 const buttonFunction = (funct) => {
     setClassName('remove');
