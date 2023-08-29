@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.mask {
+    -webkit-mask-image: url(image/mask-image.png);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position-y: -2rem;
+    width: 20rem;
+}
+
+.mask>img {
+    max-width: 100%;
+    object-fit: cover;
+}
